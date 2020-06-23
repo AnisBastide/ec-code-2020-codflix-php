@@ -33,7 +33,7 @@ function signup($post)
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         if ($password === $password_confirm && $password != "") {
             $data->email=$email;
-            $data->password=$password;
+            $data->password=hash('sha256',$password);
             $user=new user($data);
             $user->createUser();
             $to=$user->getEmail();
