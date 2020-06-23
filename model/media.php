@@ -93,13 +93,15 @@ class Media {
     // Open database connection
     $db   = init_db();
 
-    if(title!="" && title!=null){
-        $req  = $db->prepare( "SELECT * FROM media WHERE title = ? ORDER BY release_date DESC" );
-        $req->execute( array( '%' . $title . '%' ));
-    }
-    else{
+    if($title==""){
+
         $req  = $db->prepare( "SELECT * FROM media ORDER BY release_date DESC" );
         $req->execute();
+
+    }
+    else{
+        $req  = $db->prepare( "SELECT * FROM media WHERE title = ? ORDER BY release_date DESC" );
+        $req->execute( array( '%' . $title . '%' ));
     }
 
     // Close database connection

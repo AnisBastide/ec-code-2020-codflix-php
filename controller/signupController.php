@@ -40,7 +40,7 @@ function signup($post)
             $subject="verify your email";
             $message="click the link to verify your email http://localhost/EcCode/index.php?action=verify&user=".$email."";
             mail($to,$subject,$message);
-            echo '<script type="text/javascript">window.alert("You are sucessfully registered, please log in");</script>';
+            echo '<script type="text/javascript">window.alert("You are successfully registered, please log in");</script>';
             loginPage();
         } else {
             echo '<script type="text/javascript">window.alert("the password are not the same or are empty");</script>';
