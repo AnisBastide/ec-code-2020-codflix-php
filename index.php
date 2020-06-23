@@ -3,8 +3,7 @@
 require_once( 'controller/homeController.php' );
 require_once( 'controller/loginController.php' );
 require_once( 'controller/signupController.php' );
-require_once( 'controller/mediaController.php' );
-
+require_once('controller/mediaController.php');
 /**************************
 * ----- HANDLE ACTION -----
 ***************************/
@@ -21,8 +20,8 @@ if ( isset( $_GET['action'] ) ):
     break;
 
     case 'signup':
-
-      signupPage();
+        if ( !empty( $_POST ) ) signup( $_POST );
+        else signupPage();
 
     break;
 
@@ -31,6 +30,9 @@ if ( isset( $_GET['action'] ) ):
       logout();
 
     break;
+      case 'verify':
+          verifyUserByEmail($_GET['user']);
+      break;
 
   endswitch;
 
@@ -39,7 +41,7 @@ else:
   $user_id = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : false;
 
   if( $user_id ):
-    mediaPage();
+      mediaPage();
   else:
     homePage();
   endif;

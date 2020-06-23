@@ -17,7 +17,7 @@ class User {
     endif;
   }
 
-  /***************************
+  /***************************ù
   * -------- SETTERS ---------
   ***************************/
 
@@ -84,7 +84,7 @@ class User {
       'password'  => $this->getPassword()
     ));
 
-    // Close databse connection
+    // Close database connection
     $db = null;
 
   }
@@ -101,7 +101,7 @@ class User {
     $req  = $db->prepare( "SELECT * FROM user WHERE id = ?" );
     $req->execute( array( $id ));
 
-    // Close databse connection
+    // Close database connection
     $db   = null;
 
     return $req->fetch();
@@ -119,7 +119,7 @@ class User {
     $req  = $db->prepare( "SELECT * FROM user WHERE email = ?" );
     $req->execute( array( $this->getEmail() ));
 
-    // Close databse connection
+    // Close database connection
     $db   = null;
 
     return $req->fetch();

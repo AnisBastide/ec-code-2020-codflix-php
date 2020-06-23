@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+<?php ob_start();?>
 
 <div class="row">
     <div class="col-md-4 offset-md-8">
