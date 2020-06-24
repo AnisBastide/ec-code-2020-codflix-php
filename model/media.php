@@ -97,18 +97,38 @@ class Media {
 
         $req  = $db->prepare( "SELECT * FROM media ORDER BY release_date DESC" );
         $req->execute();
-
+        $result=$req->fetchAll();
     }
     else{
-        $req  = $db->prepare( "SELECT * FROM media WHERE title = ? ORDER BY release_date DESC" );
-        $req->execute( array( '%' . $title . '%' ));
+        $req  = $db->prepare( "SELECT title FROM media ORDER BY release_date DESC" );
+        $req->execute();
+        $tab=$req->fetchAll(PDO::FETCH_ASSOC);
+        $filteredList=Media::search($tab,$title);
+        $filteredString=implode("', '",$filteredList);
+        $req = $db->prepare("SELECT * FROM media WHERE title IN ('$filteredString') ORDER BY release_date DESC");
+        $req->execute();
+        $result=$req->fetchAll();
     }
 
     // Close database connection
     $db   = null;
 
-    return $req->fetchAll();
+    return $result;
 
   }
+  //for the moment the search is not perfect, it will find every media where the search is in so if you write "c" it will also find "Michel"
+    public static function search($tab,$search){
+      $list= array();
+      foreach($tab as $array){
+          foreach($array as $title){
+              if(strpos(strtolower($title),strtolower($search))!== false){
+                  array_push($list,$title);
+//                  $list[]=$title;
+              }
+          }
+      }
 
+        return($list);
+    }
 }
+
