@@ -123,7 +123,6 @@ class Media {
           foreach($array as $title){
               if(strpos(strtolower($title),strtolower($search))!== false){
                   array_push($list,$title);
-//                  $list[]=$title;
               }
           }
       }
