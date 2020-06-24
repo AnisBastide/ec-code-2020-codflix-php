@@ -12,7 +12,6 @@
         </form>
     </div>
 </div>
-
 <div class="media-list">
     <?php
     foreach( $medias as $media ):?>
@@ -27,11 +26,10 @@
                 </div>
             </div>
             <div class="title"><?= $media['title']; ?></div>
+            <div class="title"><?= $media['release_date']; ?></div>
         </a>
     <?php endforeach; ?>
 </div>
 
-
 <?php $content = ob_get_clean(); ?>
-
 <?php require('dashboard.php'); ?>

@@ -1,0 +1,23 @@
+.mediaDetail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text{
+    font-weight: bold;
+
+    padding: 8px 20px;
+    text-align: center;
+    color: black;
+    margin-right:10%;
+    margin-left:10%;
+    font-size: 150%;
+}
+.textLine:after {
+    content: "";
+    display: block;
+    width: 100px;
+
+    border-bottom: 1px solid var(--color-red);
+    margin: 10px auto 0 auto;
+}

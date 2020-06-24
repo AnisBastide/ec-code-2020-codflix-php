@@ -1,18 +1,20 @@
-<?php ob_start();?>
+<?php ob_start(); ?>
 
-<div>
-        <a class="item" href="index.php?media=<?= $media['id']; ?>">
-            <div class="video">
-                <div>
+    <div class="mediaDetail">
 
-                </div>
-            </div>
-            <div class="title"><?= $media['title']; ?></div>
-            <div class="title"><?= $media['release_date']; ?></div>
-        </a>
-</div>
-
-
+        <div class="text">
+        <div class="textLine"><?= $media['title']; ?></div>
+        <div class="textLine"><?= $media['type']; ?></div>
+        <div class="textLine"><?= $media['status']; ?></div>
+        <div class="textLine"><?= $media['release_date']; ?></div>
+        <div class="textLine"><?= $media['summary']; ?></div>
+        <div class="textLine"><?= $media['trailer_url']; ?></div>
+        <div class="textLine"><?= Media::getGenreByid($media['genre_id'])['name']; ?></div>
+        </div>
+        <div class="image">
+        <img class="title" src="<?= $media['image']; ?>">
+        </div>
+    </div>
 
 
 <?php $content = ob_get_clean(); ?>
