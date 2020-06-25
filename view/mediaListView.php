@@ -1,4 +1,4 @@
-<?php ob_start();?>
+<?php ob_start(); ?>
 
 <div class="row">
     <div class="col-md-4 offset-md-8">
@@ -14,13 +14,12 @@
 </div>
 <div class="media-list">
     <?php
-    foreach( $medias as $media ):?>
+    foreach ($medias as $media):?>
         <a class="item" href="index.php?media=<?= $media['id']; ?>">
             <div class="video">
                 <div style="display: flex; justify-content: center">
-
-                        <img style="width: 100px;
-    height: 100px;" src="<?= $media['thumbnail']?>">
+                    <img style="width: 100px;
+                    height: 100px;" src="<?= $media['thumbnail'] ?>">
                 </div>
             </div>
             <div class="title"><?= $media['title']; ?></div>

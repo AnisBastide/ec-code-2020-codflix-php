@@ -1,32 +1,36 @@
 <?php ob_start(); ?>
 <?php ini_set('display_errors', 1); ?>
 <?php require('model/history.php') ?>
-<?php $historyContent=selectAllHistory($_SESSION['user_id']); ?>
+<?php $historyContent = selectAllHistory($_SESSION['user_id']); ?>
 
 <table class="table">
-  <thead>
+    <thead>
     <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Start Date</th>
-      <th scope="col" class="position-relative">Action <button type="button"  style="position: absolute; right: 10px; top: 5px " class="btn btn-danger " data-toggle="modal" data-target="#exampleModal">
-              Delete all
-          </button></th>
+        <th scope="col">Title</th>
+        <th scope="col">Start Date</th>
+        <th scope="col" class="position-relative">Action
+            <button type="button" style="position: absolute; right: 10px; top: 5px " class="btn btn-danger "
+                    data-toggle="modal" data-target="#exampleModal">
+                Delete all
+            </button>
+        </th>
     </tr>
-  </thead>
-  <tbody>
-<?php
-foreach( $historyContent as $content ):?>
-    <tr>
-      <th scope="row"><?= Media::getMediaById($content['media_id'])['title']; ?></th>
-      <td><?= $content['start_date'] ?></td>
-      <td><a class="btn btn-danger" href="view/deleteHistory.php?id=<?= $content['id'] ?>">Delete</a></td>
-    </tr>
-<?php endforeach;?>
-  </tbody>
+    </thead>
+    <tbody>
+    <?php
+    foreach ($historyContent as $content):?>
+        <tr>
+            <th scope="row"><?= Media::getMediaById($content['media_id'])['title']; ?></th>
+            <td><?= $content['start_date'] ?></td>
+            <td><a class="btn btn-danger" href="view/deleteHistory.php?id=<?= $content['id'] ?>">Delete</a></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
 </table>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
