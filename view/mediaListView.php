@@ -18,11 +18,8 @@
         <a class="item" href="index.php?media=<?= $media['id']; ?>">
             <div class="video">
                 <div>
-                    <video>
-                        <source
-                                src="<?= $media['trailer_url']; ?>"
-                                type="video/mp4">
-                        <video/>
+
+                        <img src="<?= $media['thumbnail']?>">
                 </div>
             </div>
             <div class="title"><?= $media['title']; ?></div>

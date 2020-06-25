@@ -21,3 +21,47 @@
     border-bottom: 1px solid var(--color-red);
     margin: 10px auto 0 auto;
 }
+body {
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+.mediaDetailPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.episode{
+margin-bottom: 50px;
+}
+.episode_title {
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+
+}
+.episode_title:hover {
+    text-decoration: none;
+
+}
+.numberAndTitle{
+    padding:6px 0 6px 0;
+    font:bold 13px Arial;
+    background:#478bf9;
+    color:#fff;
+    border:none;
+    margin: 20px 20px 20px 20px;
+}
+.episode_number{
+    margin-left: 10px;
+}
+.saison_number{
+    padding:6px 0 6px 0;
+    font:Bold 13px Arial;
+    color:#fff;
+    width:55px;
+    border-radius:2px;
+    border:none;
+}
+.embed_video{
+    width: 1000px;
+    height: 800px;
+}

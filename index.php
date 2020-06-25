@@ -5,6 +5,7 @@ require_once('controller/loginController.php');
 require_once('controller/signupController.php');
 require_once('controller/mediaController.php');
 require_once('controller/mediaDetailControler.php');
+require_once('controller/episodeController.php');
 /**************************
  * ----- HANDLE ACTION -----
  ***************************/
@@ -41,8 +42,15 @@ else:
 
     $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
     $media_id=isset($_GET['media']) ? $_GET['media'] : null;
-    if ($media_id):
-        filmDetails($media_id);
+
+    if(isset($_GET['video'])):
+        episode();
+    elseif ($media_id):
+        if(Media::getTypeById($media_id)['type']==="film"):
+            filmDetails($media_id);
+        elseif(Media::getTypeById($media_id)['type']==="serie"):
+            seriesDetail($media_id);
+        endif;
     elseif ($user_id):
         mediaPage();
     else:

@@ -161,5 +161,29 @@ class Media
         $req->execute(array($genre_id));
         return $req->fetch();
     }
+    public static function getTypeById($id){
+        $db = init_db();
+        $req = $db->prepare("SELECT type FROM media where id = ? ");
+        $req->execute(array($id));
+        return $req->fetch();
+    }
+    public static function getNumberOfSeason($series_id){
+        $db = init_db();
+        $req = $db->prepare("SELECT DISTINCT season FROM episode where serie_id = ? ");
+        $req->execute(array($series_id));
+        return $req->rowCount();
+    }
+    public static function getNumberOfEpisode($season_id){
+        $db = init_db();
+        $req = $db->prepare("SELECT episode_number FROM episode where season = ? ");
+        $req->execute(array($season_id));
+        return $req->rowCount();
+    }
+    public static function  getEpisodesInformation($series_id,$season_id,$episode_number){
+        $db = init_db();
+        $req = $db->prepare("SELECT * FROM episode where serie_id ='".$series_id."' and season='" . $season_id ."' and episode_number='" .$episode_number. "'");
+        $req->execute();
+        return $req->fetchAll();
+    }
 }
 
