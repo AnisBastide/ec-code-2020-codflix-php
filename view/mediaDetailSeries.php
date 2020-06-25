@@ -13,7 +13,7 @@
             <div class="textLine"><?= Media::getGenreByid($media['genre_id'])['name']; ?></div>
         </div>
                 <div class="image">
-                    <img class="title" src="<?= $media['image']; ?>">
+                    <img style="width:500px; height=900px; " src="<?= $media['image']; ?>">
                 </div>
     </div>
     <div class="episode">
@@ -29,7 +29,7 @@
             <div>
 
                 <div class="numberAndTitle" >
-                    <a  href="index.php?video=<?= $episode[0]['episode_link']; ?>" class="episode_number episode_title"> <?=$episode[0]['episode_number'] ?>- <?= $episode[0]['episode_title'] ?>
+                    <a  href="index.php?video=<?= $episode[0]['episode_link']; ?>&media_id= <?= $media['id']?>" class="episode_number episode_title"> <?=$episode[0]['episode_number'] ?>- <?= $episode[0]['episode_title'] ?>
                         </a>
                 </div>
 

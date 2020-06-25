@@ -17,9 +17,10 @@
     foreach( $medias as $media ):?>
         <a class="item" href="index.php?media=<?= $media['id']; ?>">
             <div class="video">
-                <div>
+                <div style="display: flex; justify-content: center">
 
-                        <img src="<?= $media['thumbnail']?>">
+                        <img style="width: 100px;
+    height: 100px;" src="<?= $media['thumbnail']?>">
                 </div>
             </div>
             <div class="title"><?= $media['title']; ?></div>

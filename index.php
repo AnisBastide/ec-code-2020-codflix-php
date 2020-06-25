@@ -6,6 +6,7 @@ require_once('controller/signupController.php');
 require_once('controller/mediaController.php');
 require_once('controller/mediaDetailControler.php');
 require_once('controller/episodeController.php');
+require_once('controller/historyController.php');
 /**************************
  * ----- HANDLE ACTION -----
  ***************************/
@@ -34,6 +35,9 @@ if (isset($_GET['action'])):
             break;
         case 'verify':
             verifyUserByEmail($_GET['user']);
+            break;
+        case 'history':
+            history();
             break;
 
     endswitch;
